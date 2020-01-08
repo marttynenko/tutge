@@ -1,0 +1,354 @@
+<!--#include file="header.html"-->
+
+<div class="flex-row flex-layout">
+  <aside class="flx-left-sidebar">
+    <div class="menu-channels block">
+      <a href="#" class="btn block channels-link">Мои каналы</a>
+      <ul class="menu-channels-ul">
+        <li><a href="#"><span>Очень длинное название канала</span></a></li>
+        <li><a href="#" class="active"><span>Forse</span></a></li>
+        <li><a href="#"><span>Сервис ключ</span></a></li>
+        <li><a href="#"><span>Канал 4</span></a></li>
+        <li><a href="#"><span>Канал 5</span></a></li>
+      </ul>
+    </div><!--.menu-channels-->
+  </aside>
+
+  <main class="flx-main content">
+    <div class="recomended-channel ui-block">
+      <div class="flex valign-center">
+        <div class="recomended-channel-img">
+          <img src="images/examples/subscribe-img.jpg" alt="alt">
+        </div>
+        <div class="recomended-channel-descr">
+          <h1 class="recomended-channel-title">Набор инструментов 94 передмета Сервис ключ</h1>
+          <div class="recomended-channel-subscribe">
+            <a href="#" class="btn"><i class="i-bell-white"></i>Подписаться</a>
+            <div class="recomended-channel-subscribers channel-item-details">
+              <div class="channel-item-detail"><i class="i-spin"></i>Регион: Москва</div>
+              <div class="channel-item-detail"><i class="i-suser"></i>14 770 подписчиков</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="slick-channels-wrap">
+      <div class="slick-channels">
+        <div class="slick-channels-slide"><a href="images/examples/slide-1.jpg" class="slick-gallery"><img src="images/examples/slide-1.jpg" alt="alt"></a></div>
+        <div class="slick-channels-slide"><a href="images/examples/slide-2.jpg" class="slick-gallery"><img src="images/examples/slide-2.jpg" alt="alt"></a></div>
+        <div class="slick-channels-slide"><a href="https://via.placeholder.com/600x400/" class="slick-gallery"><img src="https://via.placeholder.com/150x101/" alt="alt"></a></div>
+        <div class="slick-channels-slide"><a href="https://via.placeholder.com/600x400/FF0000/FFF" class="slick-gallery"><img src="https://via.placeholder.com/150x101/FF0000/FFF" alt="alt"></a></div>
+        <div class="slick-channels-slide"><a href="images/examples/slide-1.jpg" class="slick-gallery"><img src="images/examples/slide-1.jpg" alt="alt"></a></div>
+      </div>
+    </div>
+
+    <div class="feed-panel ui-block">
+      <div class="feed-panel-top">
+        <div class="feed-panel-categories tabs">
+          <a href="#tab-feed-all">Тутже</a>
+          <a href="#tab-feed-sale">Продам</a>
+          <a href="#tab-feed-buy">Куплю</a>
+        </div>
+        <div class="feed-panel-search">
+          <div class="feed-panel-search-toggler"></div>
+          <div class="feed-panel-search-form">
+            <input type="text" class="feed-panel-search-input">
+          </div>
+        </div>
+      </div><!--.feed-panel-top-->
+      <div class="feed-panel-bottom flex align-justify valign-center">
+        <div class="feed-panel-filters">
+          <span class="feed-panel-filters-label">Показать:</span>
+          <a href="#" class="active">По рейтингу</a>
+          <a href="#">В наличии</a>
+          <a href="#">Дешевые</a>
+          <a href="#">Дорогие</a>
+        </div>
+        <div class="feed-panel-style">
+          <a href="javascript:void(0)" class="style-single" data-is-full="true">
+            <svg class="sprite svg-style">
+              <use xlink:href="svg/svg/symbols.svg#style-single">
+            </svg>
+          </a>
+          <!-- <a href="javascript:void(0)" class="style-full active" data-style="full">
+            <svg class="sprite svg-style">
+              <use xlink:href="svg/svg/symbols.svg#style-full-stroke">
+            </svg>
+          </a>
+          <a href="javascript:void(0)" class="style-compact" data-style="compact">
+            <svg class="sprite svg-style">
+              <use xlink:href="svg/svg/symbols.svg#style-compact-stroke">
+            </svg>
+          </a> -->
+        </div>
+      </div>
+    </div><!--.feed-panel-->
+
+    <div class="add-ob">
+      <div class="add-ob-btn"><span class="add-ob-ava"><img src="images/examples/ava-feed.jpg" srcset="images/examples/ava-feed_2x.jpg" alt="alt"></span><span class="add-ob-txt">Разместить объявление</span><i class="i-plus"></i></div>
+
+      <div class="add-ob-form ui-block">
+        <form action="#" novalidate>
+          <div class="field field-price">
+            <div class="field-price-toggler">$</div>
+            <div class="field-price-drop">
+              <div class="field-price-summ">
+                <span class="ob-currency-toggler">₽</span>
+                <input type="text" class="ob-price-input" placeholder="1 000">
+                <span class="ob-price-currency">RUB</span>
+              </div>
+              <div class="field-price-term">
+                <input type="text" id="term-range" class="ui-range" data-min="1" data-max="7" data-unit="дней">
+                <div class="term-hints flex align-justify">
+                  <span>1 день</span><span>7 дней</span>
+                </div>
+              </div>
+            </div>
+          </div><!--.field-price-->
+          
+          <div class="field">
+            <input type="text" class="maxlength" maxlength="60" placeholder="Заголовок">
+          </div>
+          <div class="field">
+            <textarea name="" id="" rows="3" class="maxlength" maxlength="128" placeholder="Описание услуги / товара (2 строки максимум)"></textarea>
+          </div>
+
+          <div class="flex-row">
+            <div class="flx-3 flx-u-6">
+              <div class="upload-with-preview flex align-center valign-center">
+                <input type="file" accept="jpg, jpeg, png, gif" class="not-styler">
+                <div class="upload-preview-label"><i class="i-camera"></i>Добавить фото</div>
+              </div>
+            </div>
+
+            <div class="flx-3 flx-u-6">
+              <div class="upload-with-preview flex align-center valign-center">
+                <input type="file" accept="jpg, jpeg, png, gif" class="not-styler">
+                <div class="upload-preview-label"><i class="i-camera"></i>Добавить фото</div>
+              </div>
+            </div>
+
+            <div class="flx-3 flx-u-6">
+              <div class="upload-with-preview flex align-center valign-center">
+                <input type="file" accept="jpg, jpeg, png, gif" class="not-styler">
+                <div class="upload-preview-label"><i class="i-camera"></i>Добавить фото</div>
+              </div>
+            </div>
+
+            <div class="flx-3 flx-u-6">
+              <div class="upload-with-preview flex align-center valign-center">
+                <input type="file" accept="jpg, jpeg, png, gif" class="not-styler">
+                <div class="upload-preview-label"><i class="i-camera"></i>Добавить фото</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="flex-row">
+            <div class="flx-6 flx-u-12">
+              <div class="field field-iconed">
+                <input type="text" placeholder="Цена">
+                <div class="field-iconed-icon">
+                  <svg class="sprite svg-field-currency">
+                    <use xlink:href="svg/svg/symbols.svg#currency-rub">
+                  </svg>
+                </div>
+              </div>
+            </div>
+            <div class="flx-6 flx-u-12">
+              <div class="field field-iconed">
+                <input type="tel" placeholder="Телефон">
+                <div class="field-iconed-icon">
+                  <svg class="sprite svg-field-phone">
+                    <use xlink:href="svg/svg/symbols.svg#phone-new-nofill">
+                  </svg>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="field field-iconed">
+            <div class="ui-autocomplete">
+              <input type="text" placeholder="Адрес">
+              <div class="ui-autocomplete-cancel">
+                <svg class="sprite svg-cancel">
+                  <use xlink:href="svg/svg/symbols.svg#cancel">
+                </svg>
+              </div>
+              <div class="ui-autocomplete-drop">
+                <div class="ui-autocomplete-drop-items">
+                  <a href="#" class="ui-autocomplete-drop-item">Москва, улица Пушкина</a>
+                  <a href="#" class="ui-autocomplete-drop-item">Москва, улица Пупкина</a>
+                  <a href="#" class="ui-autocomplete-drop-item">Москва, проспект Прохорова</a>
+                  <a href="#" class="ui-autocomplete-drop-item">Москва, улица Пушкина</a>
+                  <a href="#" class="ui-autocomplete-drop-item">Москва, улица Пупкина</a>
+                  <a href="#" class="ui-autocomplete-drop-item">Москва, проспект Прохорова</a>
+                  <a href="#" class="ui-autocomplete-drop-item">Москва, улица Пушкина</a>
+                  <a href="#" class="ui-autocomplete-drop-item">Москва, улица Пупкина</a>
+                  <a href="#" class="ui-autocomplete-drop-item">Москва, проспект Прохорова</a>
+                  <a href="#" class="ui-autocomplete-drop-item">Москва, улица Пушкина</a>
+                  <a href="#" class="ui-autocomplete-drop-item">Москва, улица Пупкина</a>
+                  <a href="#" class="ui-autocomplete-drop-item">Москва, проспект Прохорова</a>
+                </div>
+              </div>
+            </div>
+            <div class="field-iconed-icon">
+              <svg class="sprite svg-pin-field">
+                <use xlink:href="svg/svg/symbols.svg#pin-gray">
+              </svg>
+            </div>
+            <div class="field-hint">Точный адрес поможет привлечь заинтересованных покупателей.</div>
+          </div>
+
+          <div class="field field-map">
+            <div id="ob-map" class="ob-map-field"></div>
+          </div>
+          
+          <div class="field-submit">
+            <button class="btn block">Разместить объявление</button>
+          </div>
+        </form>
+      </div>
+    </div><!--.add-ob-->
+    
+
+    <div id="tab-feed-all" class="tab-feed">
+      
+      <div class="ob-list">
+
+        <div class="ob-item flex" data-adr="Москва, Кожевническая улица, 14с2" data-coords="55.729052,37.645987">
+          <div class="ob-item-img"><a href="#"><img src="images/examples/new-card-1.jpg" srcset="images/examples/new-card-1_2x.jpg 2x" alt="alt" loading="lazy"></a></div>
+          <div class="ob-item-body">
+            <div class="ob-item-top flex align-justify valign-center">
+              <div class="ob-item-info">
+                <div class="ob-item-author"><img src="images/examples/ava-feed_2x.jpg" loading="lazy" alt="alt" ></div>
+                <div class="ob-item-date">30 мая 16:10</div>
+              </div>
+              <div class="ob-item-actions">
+                <a href="javascript:void(0)" class="ob-item-to-map">
+                  <svg class="sprite svg-pin">
+                    <use xlink:href="svg/svg/symbols.svg#pin-new">
+                  </svg>
+                </a>
+                <div class="ob-item-drop">
+                  <a href="javascript:void(0)" class="ob-item-drop-toggler">
+                    <svg class="sprite svg-pin">
+                      <use xlink:href="svg/svg/symbols.svg#toggler-down">
+                    </svg>
+                  </a>
+                  <ul class="ob-item-drop-links">
+                    <li><a href="#">Редактировать</a></li>
+                    <li><a href="#">Пожаловаться</a></li>
+                    <li><a href="#">Еще какое-то действие</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="ob-item-title"><a href="#">Набор инструментов 94 предмета Force MCR94XKA</a></div>
+            <div class="ob-item-txt">Текстовое описание для карточки длиною в 2 строки. Тестовое описание для карточки длиною в 2 строки.</div>
+            <div class="ob-item-bottom flex align-justify">
+              <div class="ob-item-price">5 000 <span class="ob-item-price-unit">₽</span></div>
+              <div class="ob-item-phone phone-from-attr" data-phone="+7 800-82-92-11">+7 800-82-<span class="dots">...</span></div>
+            </div>
+          </div>
+        </div><!--.ob-item-->
+
+        <div class="ob-item flex" data-adr="Москва, Юго-Западный административный округ" data-coords="55.679610,37.576435">
+          <div class="ob-item-img"><a href="#"><img src="images/examples/new-card-1.jpg" srcset="images/examples/new-card-1_2x.jpg 2x" alt="alt" loading="lazy"></a></div>
+          <div class="ob-item-body">
+            <div class="ob-item-top flex align-justify valign-center">
+              <div class="ob-item-info">
+                <div class="ob-item-author"><img src="images/examples/ava-feed_2x.jpg" loading="lazy"></div>
+                <div class="ob-item-date">30 мая 16:10</div>
+              </div>
+              <div class="ob-item-actions">
+                <a href="javascript:void(0)" class="ob-item-to-map">
+                  <svg class="sprite svg-pin">
+                    <use xlink:href="svg/svg/symbols.svg#pin-new">
+                  </svg>
+                </a>
+                <div class="ob-item-drop">
+                  <a href="javascript:void(0)" class="ob-item-drop-toggler">
+                    <svg class="sprite svg-pin">
+                      <use xlink:href="svg/svg/symbols.svg#toggler-down">
+                    </svg>
+                  </a>
+                  <ul class="ob-item-drop-links">
+                    <li><a href="#">Редактировать</a></li>
+                    <li><a href="#">Пожаловаться</a></li>
+                    <li><a href="#">Еще какое-то действие</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="ob-item-title"><a href="#">Набор инструментов 94 предмета Force MCR94XKA</a></div>
+            <div class="ob-item-txt">Текстовое описание для карточки длиною в 2 строки. Тестовое описание для карточки длиною в 2 строки.</div>
+            <div class="ob-item-bottom flex align-justify">
+              <div class="ob-item-price">5 000 <span class="ob-item-price-unit">₽</span></div>
+              <div class="ob-item-phone phone-from-attr" data-phone="+7 800-82-92-11">+7 800-82-<span class="dots">...</span></div>
+            </div>
+          </div>
+        </div><!--.ob-item-->
+
+        <div class="ob-item flex" data-adr="Москва, Николоямская улица, 19с3" data-coords="55.747760,37.653949">
+          <div class="ob-item-img"><a href="#"><img src="images/examples/new-card-1.jpg" srcset="images/examples/new-card-1_2x.jpg 2x" alt="alt" loading="lazy"></a></div>
+          <div class="ob-item-body">
+            <div class="ob-item-top flex align-justify valign-center">
+              <div class="ob-item-info">
+                <div class="ob-item-author"><img src="images/examples/ava-feed_2x.jpg" loading="lazy"></div>
+                <div class="ob-item-date">29 мая 11:40</div>
+              </div>
+              <div class="ob-item-actions">
+                <a href="javascript:void(0)" class="ob-item-to-map">
+                  <svg class="sprite svg-pin">
+                    <use xlink:href="svg/svg/symbols.svg#pin-new">
+                  </svg>
+                </a>
+                <div class="ob-item-drop">
+                  <a href="javascript:void(0)" class="ob-item-drop-toggler">
+                    <svg class="sprite svg-pin">
+                      <use xlink:href="svg/svg/symbols.svg#toggler-down">
+                    </svg>
+                  </a>
+                  <ul class="ob-item-drop-links">
+                    <li><a href="#">Редактировать</a></li>
+                    <li><a href="#">Пожаловаться</a></li>
+                    <li><a href="#">Еще какое-то действие</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="ob-item-title"><a href="#">Инструменты TOPEX. Набор 120 предметов</a></div>
+            <div class="ob-item-txt">Текстовое описание для карточки длиною в 2 строки. Тестовое описание для карточки длиною в 2 строки.</div>
+            <div class="ob-item-bottom flex align-justify">
+              <div class="ob-item-price">3 100 <span class="ob-item-price-unit">₽</span></div>
+              <div class="ob-item-phone phone-from-attr" data-phone="+7 800-99-11-99">+7 800-99-<span class="dots">...</span></div>
+            </div>
+          </div>
+        </div><!--.ob-item-->
+
+
+      </div><!--.ad-list-->
+      
+  
+      <a href="#" class="btn block bordered load-more">Показать еще</a>
+    </div><!--.tab-feed-->
+
+    <div id="tab-feed-sale" class="tab-feed">
+      Содержимое вкладки
+    </div><!--.tab-feed-->
+
+    <div id="tab-feed-buy" class="tab-feed">
+      Содержимое вкладки
+    </div><!--.tab-feed-->
+
+    
+  </main>
+
+  <aside class="flx-right-sidebar">
+    <div class="banner"><a href="#"><img src="images/examples/banner.jpg" alt="banner"></a></div>
+  </aside>
+</div>
+
+
+<!--#include file="footer.html"-->

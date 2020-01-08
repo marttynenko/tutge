@@ -1,0 +1,151 @@
+.header {
+	padding: 25px 0px;
+	margin-bottom: 35px;
+	border-bottom: 1px solid $border;
+}
+.search-form {
+	-ms-box-shadow: 0px 0px 20px -2px rgba(58, 84, 107, 0.45);
+	box-shadow: 0px 0px 20px -2px rgba(58, 84, 107, 0.45);
+	border-radius: 5px;
+	font-size: 0;
+
+	&-search {
+		-ms-flex: 0 0 calc(100% - 180px);
+		flex: 0 0 calc(100% - 180px);
+		max-width: calc(100% - 180px);
+		position: relative;
+	}
+	&-location {
+		-ms-flex: 0 0 180px;
+		flex: 0 0 180px;
+		max-width: 180px;
+
+		.jq-selectbox {
+			width: 100%;
+
+			&__select {
+				border: 0 !important;
+				height: 52px;
+				line-height: 52px;
+				padding-left: 22px;
+				color: $light;
+				// @include fz(16);
+				-ms-border-radius: 0px 5px 5px 0px;
+				border-radius: 0px 5px 5px 0px;
+			}
+			&__dropdown {
+				top: 52px;
+				@include fz(14);
+
+				li {
+					padding-left: 22px;
+				}
+			}
+		}
+	}
+}
+input.search-form-input {
+	width: 100%;
+	height: 52px;
+	padding: 0px 60px 0px 25px;
+	border-color: transparent;
+	border-right-color: #f1f1f1;
+	-ms-border-radius: 5px 0 0 5px;
+	border-radius: 5px 0 0 5px;
+	// @include fz(16);
+
+	&:hover {
+		border-color: rgba($primary, .5);
+	}
+	&:focus {
+		border-color: $primary;
+	}
+}
+input.search-form-input::-webkit-input-placeholder {
+	color: $light;
+}
+
+button.search-form-submit {
+	border: 0;
+	padding: 0;
+	margin: 0;
+	font-size: 0;
+	color: transparent;
+	position: absolute;
+	right: 22px;
+	top: 0;
+	bottom: 0;
+	margin: auto 0;
+	cursor: pointer;
+	outline: none;
+	background-color: rgba(255,255,255,0);
+	-webkit-appearance: none;
+	width: 18px;
+	height: 18px;
+	background: url(../images/svg/i-search.svg) center no-repeat;
+	-webkit-background-size: contain;
+	background-size: contain;
+	//@include sprite($i-search);
+	// filter: drop-shadow(0px 0px 15px $primary);
+	overflow: visible;
+	
+	&:hover {
+		-webkit-filter: drop-shadow(0px 0px 15px $primary);
+		filter: drop-shadow(0px 0px 15px $primary);
+	}
+}
+
+.profile-notifications {
+	display: inline-block;
+	vertical-align: middle;
+	margin-right: 30px;
+	position: relative;
+	/*@include sprite($i-bell);*/
+	width: 20px;
+	height: 22px;
+	background: url(../images/svg/i-bell-blue.svg) center no-repeat;
+	-webkit-background-size: contain;
+	background-size: contain;
+
+
+	&-counter {
+		position: absolute;
+		z-index: 9;
+		background: #FFF;
+		top: -10px;
+		right: -10px;
+		min-width: 20px;
+		height: 20px;
+		line-height: 20px;
+		text-align: center;
+		border: 1px solid $border;
+		-ms-border-radius: 50%;
+		border-radius: 50%;
+		@include fz(10);
+		color: $font;
+	}
+
+	&:hover {
+		filter: drop-shadow(0px 0px 15px $primary);
+	}
+}
+.profile-link {
+	color: $font;
+	// @include fz(16);
+	line-height: 1.2;
+
+	&-img {
+		margin-right: 12px;
+		max-width: 52px;
+		max-height: 52px;
+		-ms-border-radius: 50%;
+		border-radius: 50%;
+		box-shadow: 0px 0px 0px 2px $border;
+		transition: box-shadow .4s;
+	}
+	&:hover {
+		.profile-link-img {
+			box-shadow: 0px 0px 0px 3px $primary;
+		}
+	}
+}

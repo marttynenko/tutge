@@ -1,0 +1,31 @@
+<div id="popup-phone-confirm" class="white-popup popup-phone-confirm zoom-anim-dialog">
+  <div class="popup-inner">
+
+    <div class="h2">Подтверждение телефона</div>
+    
+    <p class="popup-aftertitle centered">Мы отправили СМС на ваш телефон с кодом.<br>Введите, пожалуйста, его ниже</p>
+    
+  	<form action="#" id="popup-phone-confirm-form" class="centered">
+
+    <div class="field">
+      <input type="text" class="big" name="field_code" placeholder="Код подтверждения (6 цифр)">
+    </div>
+    
+    <div class="field-btn ">
+      <input type="submit" value="Подтвердить" class="btn big">
+    </div>
+
+  	</form>
+  </div>
+<script type="text/javascript">
+  jQuery(document).ready(function($){
+    //стилизация элементов форм
+    
+    $('.white-popup input[type="checkbox"], .white-popup  input[type="radio"], .white-popup input[type="file"], .white-popup select').styler({
+      singleSelectzIndex: '1',
+    });
+
+    
+  });
+</script>
+</div>
