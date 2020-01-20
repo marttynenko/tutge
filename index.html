@@ -35,11 +35,11 @@
 
     <div class="slick-channels-wrap">
       <div class="slick-channels">
-        <div class="slick-channels-slide"><a href="images/examples/slide-1.jpg" class="slick-gallery"><img src="images/examples/slide-1.jpg" alt="alt"></a></div>
-        <div class="slick-channels-slide"><a href="images/examples/slide-2.jpg" class="slick-gallery"><img src="images/examples/slide-2.jpg" alt="alt"></a></div>
-        <div class="slick-channels-slide"><a href="https://via.placeholder.com/600x400/" class="slick-gallery"><img src="https://via.placeholder.com/150x101/" alt="alt"></a></div>
-        <div class="slick-channels-slide"><a href="https://via.placeholder.com/600x400/FF0000/FFF" class="slick-gallery"><img src="https://via.placeholder.com/150x101/FF0000/FFF" alt="alt"></a></div>
-        <div class="slick-channels-slide"><a href="images/examples/slide-1.jpg" class="slick-gallery"><img src="images/examples/slide-1.jpg" alt="alt"></a></div>
+        <div class="slick-channels-slide"><a href="javascript:void(0)" class="ajax-mfp" data-href="popup-photo.html"><img src="images/examples/slide-1.jpg" alt="alt"></a></div>
+        <div class="slick-channels-slide"><a href="ijavascript:void(0)" class="ajax-mfp" data-href="popup-photo.html"><img src="images/examples/slide-2.jpg" alt="alt"></a></div>
+        <div class="slick-channels-slide"><a href="javascript:void(0)" class="ajax-mfp" data-href="popup-photo.html"><img src="https://via.placeholder.com/150x101/" alt="alt"></a></div>
+        <div class="slick-channels-slide"><a href="javascript:void(0)" class="ajax-mfp" data-href="popup-photo.html"><img src="https://via.placeholder.com/150x101/FF0000/FFF" alt="alt"></a></div>
+        <div class="slick-channels-slide"><a href="javascript:void(0)" class="ajax-mfp" data-href="popup-photo.html"><img src="images/examples/slide-1.jpg" alt="alt"></a></div>
       </div>
     </div>
 
@@ -91,20 +91,62 @@
       <div class="add-ob-form ui-block">
         <form action="#" novalidate>
           <div class="field field-price">
-            <div class="field-price-toggler">$</div>
-            <div class="field-price-drop">
+            <div class="flex align-justify valign-center">
+              <div class="field-price-toggler">$</div>
               <div class="field-price-summ">
                 <span class="ob-currency-toggler">₽</span>
-                <input type="text" class="ob-price-input" placeholder="1 000">
-                <span class="ob-price-currency">RUB</span>
+                <input type="text" class="ob-price-input" value="0,00" id="price-summ" data-perday="100" readonly>
               </div>
-              <div class="field-price-term">
-                <input type="text" id="term-range" class="ui-range" data-min="1" data-max="7" data-unit="дней">
-                <div class="term-hints flex align-justify">
-                  <span>1 день</span><span>7 дней</span>
+            </div><!--.flex-->
+            
+            <div class="field-price-dropdown">
+              <div class="field-price-drop">
+                <div class="field-price-days centered">
+                  <span>Закрепление записи на</span>
+                  <input type="text" class="field-price-days-input" id="price-days" value="0">
+                  <span>дня(ей)</span>
                 </div>
-              </div>
-            </div>
+                <div class="field-price-term">
+                  <input type="text" id="term-range" class="ui-range" data-min="0" data-max="10" data-unit="дней">
+                  <div class="term-hints flex align-justify">
+                    <!-- <span>1 день</span><span>7 дней</span> -->
+                  </div>
+                </div>
+
+              </div><!--.field-price-drop-->
+              <div class="payment-methods">
+                <div class="flex-row">
+                  <div class="flx-payment-label flx-x-12">Способ оплаты</div>
+                  <div class="flx-payment-method flx-x-6">
+                    <label for="f_pay_1" class="label-payment">
+                      <input type="radio" name="f_pay" id="f_pay_1">
+                      <div class="label-payment-img"><img src="images/payment-1.svg" alt="Наличные"></div>
+                    </label>
+                  </div>
+
+                  <div class="flx-payment-method flx-x-6">
+                    <label for="f_pay_2" class="label-payment">
+                      <input type="radio" name="f_pay" id="f_pay_2">
+                      <div class="label-payment-img"><img src="images/payment-2.svg" alt="ЯД"></div>
+                    </label>
+                  </div>
+
+                  <div class="flx-payment-method flx-x-6">
+                    <label for="f_pay_3" class="label-payment">
+                      <input type="radio" name="f_pay" id="f_pay_3">
+                      <div class="label-payment-img"><img src="images/payment-3.svg" alt="Qiwi"></div>
+                    </label>
+                  </div>
+
+                  <div class="flx-payment-method flx-x-6">
+                    <label for="f_pay_4" class="label-payment">
+                      <input type="radio" name="f_pay" id="f_pay_4">
+                      <div class="label-payment-img"><img src="images/payment-4.svg" alt="Карта"></div>
+                    </label>
+                  </div>
+                </div>
+              </div><!--.payment-methods-->
+            </div><!--.field-price-dropdown-->
           </div><!--.field-price-->
           
           <div class="field">
@@ -157,7 +199,7 @@
             </div>
             <div class="flx-6 flx-u-12">
               <div class="field field-iconed">
-                <input type="tel" placeholder="Телефон">
+                <input type="tel" placeholder="Телефон" class="mask-phone" >
                 <div class="field-iconed-icon">
                   <svg class="sprite svg-field-phone">
                     <use xlink:href="svg/svg/symbols.svg#phone-new-nofill">
@@ -216,8 +258,8 @@
       
       <div class="ob-list">
 
-        <div class="ob-item flex" data-adr="Москва, Кожевническая улица, 14с2" data-coords="55.729052,37.645987">
-          <div class="ob-item-img"><a href="#"><img src="images/examples/new-card-1.jpg" srcset="images/examples/new-card-1_2x.jpg 2x" alt="alt" loading="lazy"></a></div>
+        <div class="ob-item flex border-color-1" data-adr="Москва, Кожевническая улица, 14с2" data-coords="55.729052,37.645987">
+          <div class="ob-item-img" data-images="images/examples/new-card-1.jpg,images/examples/new-card-4.webp,images/examples/new-card-5.jpg,images/examples/new-card-6.jpg"><a href="javascript:void(0)" data-href="popup-photo.html" class="ajax-mfp"><img src="images/examples/new-card-1.jpg" srcset="images/examples/new-card-1_2x.jpg 2x" alt="alt" loading="lazy"></a></div>
           <div class="ob-item-body">
             <div class="ob-item-top flex align-justify valign-center">
               <div class="ob-item-info">
@@ -244,7 +286,7 @@
                 </div>
               </div>
             </div>
-            <div class="ob-item-title"><a href="#">Набор инструментов 94 предмета Force MCR94XKA</a></div>
+            <div class="ob-item-title"><a href="javascript:void(0)" data-href="popup-photo.html" class="ajax-mfp">Набор инструментов 94 предмета Force MCR94XKA</a></div>
             <div class="ob-item-txt">Текстовое описание для карточки длиною в 2 строки. Тестовое описание для карточки длиною в 2 строки.</div>
             <div class="ob-item-bottom flex align-justify">
               <div class="ob-item-price">5 000 <span class="ob-item-price-unit">₽</span></div>
@@ -253,8 +295,8 @@
           </div>
         </div><!--.ob-item-->
 
-        <div class="ob-item flex" data-adr="Москва, Юго-Западный административный округ" data-coords="55.679610,37.576435">
-          <div class="ob-item-img"><a href="#"><img src="images/examples/new-card-1.jpg" srcset="images/examples/new-card-1_2x.jpg 2x" alt="alt" loading="lazy"></a></div>
+        <div class="ob-item flex border-color-2" data-adr="Москва, Юго-Западный административный округ" data-coords="55.679610,37.576435">
+          <div class="ob-item-img" data-images="images/examples/new-card-5.jpg,images/examples/new-card-4.webp"><a href="javascript:void(0)" data-href="popup-photo.html" class="ajax-mfp"><img src="images/examples/new-card-5.jpg" alt="alt" loading="lazy"></a></div>
           <div class="ob-item-body">
             <div class="ob-item-top flex align-justify valign-center">
               <div class="ob-item-info">
@@ -281,7 +323,7 @@
                 </div>
               </div>
             </div>
-            <div class="ob-item-title"><a href="#">Набор инструментов 94 предмета Force MCR94XKA</a></div>
+            <div class="ob-item-title"><a href="javascript:void(0)" data-href="popup-photo.html" class="ajax-mfp">Набор инструментов 94 предмета Force MCR94XKA</a></div>
             <div class="ob-item-txt">Текстовое описание для карточки длиною в 2 строки. Тестовое описание для карточки длиною в 2 строки.</div>
             <div class="ob-item-bottom flex align-justify">
               <div class="ob-item-price">5 000 <span class="ob-item-price-unit">₽</span></div>
@@ -291,7 +333,7 @@
         </div><!--.ob-item-->
 
         <div class="ob-item flex" data-adr="Москва, Николоямская улица, 19с3" data-coords="55.747760,37.653949">
-          <div class="ob-item-img"><a href="#"><img src="images/examples/new-card-1.jpg" srcset="images/examples/new-card-1_2x.jpg 2x" alt="alt" loading="lazy"></a></div>
+          <div class="ob-item-img"><a href="javascript:void(0)" data-href="popup-photo.html" class="ajax-mfp"><img src="images/examples/new-card-1.jpg" srcset="images/examples/new-card-1_2x.jpg 2x" alt="alt" loading="lazy"></a></div>
           <div class="ob-item-body">
             <div class="ob-item-top flex align-justify valign-center">
               <div class="ob-item-info">
@@ -318,10 +360,47 @@
                 </div>
               </div>
             </div>
-            <div class="ob-item-title"><a href="#">Инструменты TOPEX. Набор 120 предметов</a></div>
+            <div class="ob-item-title"><a href="javascript:void(0)" data-href="popup-photo.html" class="ajax-mfp">Инструменты TOPEX. Набор 120 предметов</a></div>
             <div class="ob-item-txt">Текстовое описание для карточки длиною в 2 строки. Тестовое описание для карточки длиною в 2 строки.</div>
             <div class="ob-item-bottom flex align-justify">
               <div class="ob-item-price">3 100 <span class="ob-item-price-unit">₽</span></div>
+              <div class="ob-item-phone phone-from-attr" data-phone="+7 800-99-11-99">+7 800-99-<span class="dots">...</span></div>
+            </div>
+          </div>
+        </div><!--.ob-item-->
+
+        <div class="ob-item flex border-color-6" data-adr="Москва, пр. Кирила и Мифодея, д. 1" data-coords="55.697760,37.603949">
+          <div class="ob-item-img"><a href="javascript:void(0)" data-href="popup-photo.html" class="ajax-mfp"><img src="images/examples/new-card-4.webp" alt="alt" loading="lazy"></a></div>
+          <div class="ob-item-body">
+            <div class="ob-item-top flex align-justify valign-center">
+              <div class="ob-item-info">
+                <div class="ob-item-author"><img src="images/examples/ava-feed_2x.jpg" loading="lazy"></div>
+                <div class="ob-item-date">10 мая 11:40</div>
+              </div>
+              <div class="ob-item-actions">
+                <a href="javascript:void(0)" class="ob-item-to-map">
+                  <svg class="sprite svg-pin">
+                    <use xlink:href="svg/svg/symbols.svg#pin-new">
+                  </svg>
+                </a>
+                <div class="ob-item-drop">
+                  <a href="javascript:void(0)" class="ob-item-drop-toggler">
+                    <svg class="sprite svg-pin">
+                      <use xlink:href="svg/svg/symbols.svg#toggler-down">
+                    </svg>
+                  </a>
+                  <ul class="ob-item-drop-links">
+                    <li><a href="#">Редактировать</a></li>
+                    <li><a href="#">Пожаловаться</a></li>
+                    <li><a href="#">Еще какое-то действие</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="ob-item-title"><a href="javascript:void(0)" data-href="popup-photo.html" class="ajax-mfp">Инструменты Yato. Набор 180 предметов</a></div>
+            <div class="ob-item-txt">Текстовое описание для карточки длиною в 2 строки. Тестовое описание для карточки длиною в 2 строки.</div>
+            <div class="ob-item-bottom flex align-justify">
+              <div class="ob-item-price">4 980 <span class="ob-item-price-unit">₽</span></div>
               <div class="ob-item-phone phone-from-attr" data-phone="+7 800-99-11-99">+7 800-99-<span class="dots">...</span></div>
             </div>
           </div>
@@ -346,7 +425,30 @@
   </main>
 
   <aside class="flx-right-sidebar">
-    <div class="banner"><a href="#"><img src="images/examples/banner.jpg" alt="banner"></a></div>
+    <div class="callback-channels">
+      <div class="callback">
+        <div class="callback-toggler">Заказать тутже!</div>
+        <div class="callback-body">
+          <form action="#" id="callback_form">
+            <div class="field">
+              <input type="tel" class="mask-phone" name="callback_phone" id="callback_phone" placeholder="+7(___)-___-__-__">
+            </div>
+            <button class="btn block">Жду звонка</button>
+            
+            <div class="centered"><a href="javascript:void(0)" class="callback-input-clear">Отменить</a></div>
+          </form>
+        </div>
+      </div>
+      <div class="channels-mini-list">
+        <div class="channel-mini ui-block">
+          <a href="#" class="channel-mini-link flex valign-center">
+            <div class="channel-mini-img"><img src="images/examples/subscribe-img.jpg" alt="alt"></div>
+            <div class="channel-mini-name">Название канала</div>
+          </a>
+        </div>
+      </div><!--.channels-mini-list-->
+    </div><!--.call-back-channels-->
+    
   </aside>
 </div>
 

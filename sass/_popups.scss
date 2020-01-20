@@ -168,3 +168,214 @@ button.mfp-close {
 .mfp-removing.mfp-bg {
   opacity: 0;
 }
+
+.mfp-container {
+  overflow-y: auto;
+}
+
+
+.popup-photo {
+  max-width: 900px;
+  border-radius: 0;
+  padding: 0;
+
+  &-imgs {
+    flex: 0 0 66.667%;
+    max-width: 66.667%;
+  }
+  &-content {
+    flex: 0 0 33.334%;
+    max-width: 33.334%;
+    min-height: 600px;
+    padding-bottom: 120px;
+    position: relative;
+    border-left: 1px solid $border;
+  }
+  &-nav-link {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    margin: auto 0;
+    width: 60px;
+    height: 60px;
+    padding: 5px;
+    text-align: center;
+    font-size: 0;
+    z-index: 9;
+
+    svg.sprite {
+      display: inline-block;
+      vertical-align: middle;
+      // fill: #FFF;
+      stroke: #FFF
+    }
+    &:hover {
+      svg.sprite {
+        stroke: $primary;
+      }
+    }
+  }
+  &-prev {
+    left: -60px;
+  }
+  &-next {
+    right: -60px;
+  }
+
+  &-head {
+    padding: 15px;
+    border-bottom: 1px solid $border;
+
+    &-img {
+      flex: 0 0 58px;
+      max-width: 58px;
+      margin-right: 15px;
+    }
+    &-date {
+      color: $gray;
+      @include fz(13);
+    }
+    &-author {
+      color: #000;
+      @include fz(16);
+    }
+  }
+  &-desc {
+    padding: 15px;
+  }
+  &-title {
+    font-weight: 700;
+    margin-bottom: 10px;
+    @include fz(18);
+
+    a {
+      color: #000;
+
+      &:hover {
+        color: $primary;
+      }
+    }
+  }
+  &-params {
+    color: $gray;
+  }
+  &-bottom {
+    position: absolute;
+    left: 0;
+    bottom: 63px;
+    right: 0;
+    background: #FFF;
+  }
+  &-price {
+    position: absolute;
+    left: 15px;
+    bottom: 100%;
+    margin-bottom: 12px;
+    background: #FFF;
+    font-weight: 700;
+    @include fz(20);
+  }
+  &-adrs {
+    padding: 19px 15px;
+    border-top: 1px solid $border;
+    border-bottom: 1px solid $border;
+    color: $gray;
+    cursor: pointer;
+
+    .svg-pin-adr {
+      display: inline-block;
+      vertical-align: middle;
+      margin-right: 5px;
+      position: relative;
+      top: -1px;
+    }
+  }
+  &-phone {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+
+    background: $primary;
+    cursor: pointer;
+    @include fz(21);
+    color: #FFF;
+    text-align: center;
+    padding: 17px 10px;
+
+    a {
+      display: block;
+      color: #FFF;
+      margin: -17px -10px;
+      padding: 17px 10px;
+    }
+  }
+  button.mfp-close {
+    top: -12px;
+    right: -60px;
+    width: 60px;
+    height: 60px;
+    min-width: 60px;
+
+    &:before, &:after {
+      background: #FFF;
+      height: 2px;
+      margin-top: -1px;
+      left: 12px;
+      right: 12px;
+    }
+  }
+}
+.svg-pin-adr {
+  width: 14px;
+  height: 17px;
+}
+.slick-popup {
+  &-flex {
+    height: 600px;
+    display: -ms-flex;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    img {
+      max-height: 600px;
+    }
+  }
+  .slick-dots {
+    bottom: 25px;
+
+    button {
+      background: #C4C4C4;
+      width: 8px;
+      height: 8px;
+      border: 0;
+
+      &:hover {
+        background: $primary;
+      }
+    }
+    .slick-active {
+      margin-left: 5px;
+      margin-right: 5px;
+
+      button {
+        background: $primary;
+        border: 0;
+        box-shadow: 0px 0px 0px 3px $primary;
+      }
+    }
+  }
+  .slick-arrow {
+    opacity: 0;
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+  &:hover {
+    .slick-arrow {
+      opacity: 0.6;
+    }
+  }
+}

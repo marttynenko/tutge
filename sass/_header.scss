@@ -2,18 +2,22 @@
 	padding: 25px 0px;
 	margin-bottom: 35px;
 	border-bottom: 1px solid $border;
+	background: #FFF;
 }
 .search-form {
 	-ms-box-shadow: 0px 0px 20px -2px rgba(58, 84, 107, 0.45);
 	box-shadow: 0px 0px 20px -2px rgba(58, 84, 107, 0.45);
 	border-radius: 5px;
 	font-size: 0;
+	position: relative;
+	z-index: 1000;
 
 	&-search {
 		-ms-flex: 0 0 calc(100% - 180px);
 		flex: 0 0 calc(100% - 180px);
 		max-width: calc(100% - 180px);
 		position: relative;
+		z-index: 2;
 	}
 	&-location {
 		-ms-flex: 0 0 180px;
@@ -48,11 +52,8 @@ input.search-form-input {
 	width: 100%;
 	height: 52px;
 	padding: 0px 60px 0px 25px;
-	border-color: transparent;
-	border-right-color: #f1f1f1;
 	-ms-border-radius: 5px 0 0 5px;
 	border-radius: 5px 0 0 5px;
-	// @include fz(16);
 
 	&:hover {
 		border-color: rgba($primary, .5);
@@ -92,6 +93,121 @@ button.search-form-submit {
 	&:hover {
 		-webkit-filter: drop-shadow(0px 0px 15px $primary);
 		filter: drop-shadow(0px 0px 15px $primary);
+	}
+}
+.search-form-location {
+	&-toggler {
+		position: relative;
+		z-index: 2;
+		display: block;
+		height: 52px;
+		line-height: 48px;
+		background: #FFF;
+		// border: 2px solid #D9F1FF;
+		border: 1px solid $input_border;
+		border-left: 0;
+		border-radius: 0px 5px 5px 0px;
+		@include fz(14);
+		padding: 0px 30px 0px 15px;
+		color: $gray;
+		cursor: pointer;
+		transition: border .3s;
+		
+		&:before {
+			content: "";
+			position: absolute;
+			left: -1px;
+			top: -1px;
+			bottom: -1px;
+			width: 1px;
+			transition: .3s;
+		}
+		&:after {
+			content: "";
+			position: absolute;
+			right: 15px;
+			top: 0;
+			bottom: 0;
+			margin: auto 0;
+			width: 14px;
+			height: 7px;
+			background: url(../images/svg/i-arrow-down.svg) center no-repeat;
+			background-size: contain;
+			transition: transform .2s;
+		}
+		&:hover {
+			border-color: $input_hover;
+
+			&:before {
+				background: $input_hover;;
+			}
+		}
+		&.opened {
+			border-color: $primary;
+			
+			&:after {
+				transform: rotate(180deg);
+			}
+			&:before {
+				background: $primary;
+			}
+		}
+	}
+	&-drop {
+		position: absolute;
+		z-index: 1;
+		left: 0;
+		right: 0;
+		top: 100%;
+		margin-top: -3px;
+		background: #FFF;
+		padding: 22px 15px;
+		border-radius: 0px 0px 5px 5px;
+		-ms-box-shadow: 0px 0px 20px -2px rgba(58, 84, 107, 0.45);
+		box-shadow: 0px 0px 20px -2px rgba(58, 84, 107, 0.45);
+		visibility: hidden;
+		opacity: 0;
+		transform: translate3d(0px, -15px, 0px);
+		backface-visibility: hidden;
+		transition: visibility .15s, opacity .15s, transform .3s;
+		@include fz($fontsize);
+
+		&.opened {
+			visibility: visible;
+			opacity: 1;
+			transform: translate3d(0px, 0px, 0px);
+		}
+	}
+	&-input {
+		input {
+			height: 52px;
+			// border: 2px solid #D9F1FF;
+			border-radius: 5px;
+		}
+	}
+	&-list {
+		max-height: 120px;
+		overflow-y: auto;
+		border: 1px solid $border;
+		margin-bottom: 20px;
+
+		a {
+			display: block;
+			padding: 10px 15px;
+			color: $font;
+
+			&:hover {
+				background: #D9F1FF;
+			}
+		}
+	}
+}
+.location-drop-opened.search-form {
+	input.search-form-input {
+		border-bottom-left-radius: 0px;
+	}
+	.search-form-location-toggler {
+		border-bottom-right-radius: 0px;
 	}
 }
 
@@ -148,4 +264,10 @@ button.search-form-submit {
 			box-shadow: 0px 0px 0px 3px $primary;
 		}
 	}
+}
+
+.mobile-menu,
+.mobile-menu-toggler,
+.mobile-overlay {
+	display: none;
 }

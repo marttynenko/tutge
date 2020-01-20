@@ -260,6 +260,14 @@
 			<path d="M39.768 0C25.122 0 13.256 11.866 13.256 26.512c0 11.364 7.18 20.972 17.217 24.752l2.667 8.099 6.627 20.174 6.629-20.174 2.666-8.099c10.041-3.78 17.218-13.388 17.218-24.752C66.28 11.866 54.401 0 39.768 0zm-.44 34.466a7.955 7.955 0 0 1-7.954-7.954 7.955 7.955 0 1 1 7.954 7.954z" fill="#D80027"></path>
 		</symbol>
 	
+		<symbol id="menu-toggler" viewBox="0 0 24 18">
+			<path d="M1 16.475h21.3M1 1h21.3M22.3 8.619H1" stroke="#23A8F9" stroke-width="2" stroke-linecap="round"></path>
+		</symbol>
+	
+		<symbol id="params" viewBox="0 0 24 21">
+			<path d="M1 18.208h21.3" stroke="#23A8F9" stroke-width="2" stroke-linecap="round"></path><circle cx="6.479" cy="17.898" r="2.102" fill="#F7F7F9" stroke="#23A8F9" stroke-width="2"></circle><path d="M1 3.733h21.3" stroke="#23A8F9" stroke-width="2" stroke-linecap="round"></path><path d="M8.581 3.423a2.102 2.102 0 1 1-4.204 0 2.102 2.102 0 0 1 4.204 0z" fill="#F7F7F9" stroke="#23A8F9" stroke-width="2"></path><path d="M22.3 10.351H1" stroke="#23A8F9" stroke-width="2" stroke-linecap="round"></path><circle cx="16.819" cy="10.661" r="2.102" transform="rotate(180 16.819 10.661)" fill="#F7F7F9" stroke="#23A8F9" stroke-width="2"></circle>
+		</symbol>
+	
 		<symbol id="phone-new" viewBox="0 0 12 20">
 			<path d="M10 0H2a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2zM7 19H5v-1h2v1zm3-2H2V3h8v14z" fill="#00A8FF"></path>
 		</symbol>
@@ -274,6 +282,14 @@
 	
 		<symbol id="pin-new" viewBox="0 0 14 20">
 			<path d="M14 7A7.002 7.002 0 0 0 2.05 2.05 7 7 0 0 0 0 7c0 1.387.41 2.677 1.105 3.765h-.008C3.457 14.46 7 20 7 20l5.903-9.235h-.007A6.98 6.98 0 0 0 14 7zm-7 3a3 3 0 1 1 0-6 3 3 0 0 1 0 6z" fill="#00A8FF"></path>
+		</symbol>
+	
+		<symbol id="popup-next" viewBox="0 0 23 45">
+			<path d="M1 1l21 21.527L1 44" fill="transparent"></path>
+		</symbol>
+	
+		<symbol id="popup-prev" viewBox="0 0 23 45">
+			<path d="M22 44L1 22.473 22 1" fill="transparent"></path>
 		</symbol>
 	
 		<symbol id="rub" viewBox="0 0 7 13">
@@ -331,7 +347,7 @@
 </svg>
 
 <header>
-    <h1 id="logo">Gulp SVG Sprites <small>(43 icons in &lt;symbol&gt; mode)</small></h1>
+    <h1 id="logo">Gulp SVG Sprites <small>(47 icons in &lt;symbol&gt; mode)</small></h1>
     <h4>Files Generated:</h4>
     <ol>
         <li><a href="svg/symbols.svg">svg/symbols.svg</a></li>
@@ -793,6 +809,40 @@
         </li>
         
 
+        <li title="menu-toggler">
+            <div class="icon-box" id="icon-box-menu-toggler">
+                <svg class="icon menu-toggler">
+                    <use xlink:href="#menu-toggler" />
+                </svg>
+            </div>
+            <h2>menu-toggler</h2>
+            <button onclick="showPopover('snippet-menu-toggler')">Show Snippet</button>
+            <br/>
+            <button onclick="invertBackground('icon-box-menu-toggler')">Invert Background</button>
+            <div class="snippet-popover" id="snippet-menu-toggler">
+                <pre><code>&lt;svg class=&quot;icon menu-toggler&quot;&gt;&lt;use xlink:href=&quot;#menu-toggler&quot;&gt;&lt;/use&gt;&lt;/svg&gt;</code></pre>
+                <button onclick="hidePopover()">Close</button>
+            </div>
+        </li>
+        
+
+        <li title="params">
+            <div class="icon-box" id="icon-box-params">
+                <svg class="icon params">
+                    <use xlink:href="#params" />
+                </svg>
+            </div>
+            <h2>params</h2>
+            <button onclick="showPopover('snippet-params')">Show Snippet</button>
+            <br/>
+            <button onclick="invertBackground('icon-box-params')">Invert Background</button>
+            <div class="snippet-popover" id="snippet-params">
+                <pre><code>&lt;svg class=&quot;icon params&quot;&gt;&lt;use xlink:href=&quot;#params&quot;&gt;&lt;/use&gt;&lt;/svg&gt;</code></pre>
+                <button onclick="hidePopover()">Close</button>
+            </div>
+        </li>
+        
+
         <li title="phone-new">
             <div class="icon-box" id="icon-box-phone-new">
                 <svg class="icon phone-new">
@@ -856,6 +906,40 @@
             <button onclick="invertBackground('icon-box-pin-new')">Invert Background</button>
             <div class="snippet-popover" id="snippet-pin-new">
                 <pre><code>&lt;svg class=&quot;icon pin-new&quot;&gt;&lt;use xlink:href=&quot;#pin-new&quot;&gt;&lt;/use&gt;&lt;/svg&gt;</code></pre>
+                <button onclick="hidePopover()">Close</button>
+            </div>
+        </li>
+        
+
+        <li title="popup-next">
+            <div class="icon-box" id="icon-box-popup-next">
+                <svg class="icon popup-next">
+                    <use xlink:href="#popup-next" />
+                </svg>
+            </div>
+            <h2>popup-next</h2>
+            <button onclick="showPopover('snippet-popup-next')">Show Snippet</button>
+            <br/>
+            <button onclick="invertBackground('icon-box-popup-next')">Invert Background</button>
+            <div class="snippet-popover" id="snippet-popup-next">
+                <pre><code>&lt;svg class=&quot;icon popup-next&quot;&gt;&lt;use xlink:href=&quot;#popup-next&quot;&gt;&lt;/use&gt;&lt;/svg&gt;</code></pre>
+                <button onclick="hidePopover()">Close</button>
+            </div>
+        </li>
+        
+
+        <li title="popup-prev">
+            <div class="icon-box" id="icon-box-popup-prev">
+                <svg class="icon popup-prev">
+                    <use xlink:href="#popup-prev" />
+                </svg>
+            </div>
+            <h2>popup-prev</h2>
+            <button onclick="showPopover('snippet-popup-prev')">Show Snippet</button>
+            <br/>
+            <button onclick="invertBackground('icon-box-popup-prev')">Invert Background</button>
+            <div class="snippet-popover" id="snippet-popup-prev">
+                <pre><code>&lt;svg class=&quot;icon popup-prev&quot;&gt;&lt;use xlink:href=&quot;#popup-prev&quot;&gt;&lt;/use&gt;&lt;/svg&gt;</code></pre>
                 <button onclick="hidePopover()">Close</button>
             </div>
         </li>

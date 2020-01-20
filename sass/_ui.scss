@@ -145,20 +145,7 @@ i[class^="i-"] {
 	background: $primary;
 	color: #FFF;	
 }
-::-webkit-scrollbar {
-	background: #EEE;
-	width: 8px;
-	height: 8px;
-}
-::-webkit-scrollbar-thumb {
-	background: #c1bdbd;
-	width: 8px;
-	height: 8px;
-	transition: all .8s;
-}
-::-webkit-scrollbar-thumb:hover {
-	background: $primary;
-}
+
 
 .white-block {
 	background: #FFF;
@@ -788,6 +775,13 @@ textarea {
 		border: 1px solid $primary;
 		line-height: 38px;
 		color: $primary;
+
+		&.mini {
+			line-height: $btn_height_mini - 2;
+		}
+		&.big {
+			line-height: $btn_height_big - ($btn_border_width * 2);
+		}
 
 		&:hover {
 			// background-color: $primary_hover;

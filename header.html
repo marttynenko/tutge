@@ -66,16 +66,27 @@
               <button class="search-form-submit"></button>
             </div>
             <div class="search-form-location">
-              <select name="" id="">
-                <option value="1">Москва</option>
-                <option value="2">Питер</option>
-                <option value="3">Таганрог</option>
-              </select>
+              <div class="search-form-location-toggler">Москва</div>
+              <div class="search-form-location-drop">
+                <div class="search-form-location-input field"><input type="text" placeholder="Ввод города вручную"></div>
+                <ul class="search-form-location-list">
+                  <li><a href="#">Москва</a></li>
+                  <li><a href="#">Москва и МО</a></li>
+                  <li><a href="#">Московская Область</a></li>
+                  <li><a href="#">Санкт-Питербург</a></li>
+                  <li><a href="#">Санкт-Питербург и ЛО</a></li>
+                </ul>
+                <div class="search-form-location-submit righted">
+                  <a href="#" class="btn">Показать 59 млн объявлений</a>
+                </div>
+              </div>
             </div>
           </div>
         </form>
+        <div class="mobile-menu-toggler" onclick="">
+          <img src="images/user.jpg" alt="Олег Олегович">
+        </div>
       </div>
-      <div class="mobile-search-close" onclick=""></div>
     </div>
 
     <div class="flx-user">
@@ -89,7 +100,24 @@
       </div>
     </div>
     
-  </div>
+  </div><!--.flex-row-->
+
+  <div class="mobile-menu">
+    <div class="mobile-menu-user">
+      <a href="#" class="profile-link flex valign-center">
+        <div class="profile-link-ava">
+          <img src="images/user.jpg" alt="Олег Олегович" class="profile-link-img">
+          <div class="profile-link-notifications">5</div>
+        </div>
+        <span class="profile-link-name">Олег Олегович</span>
+      </a>
+    </div>
+
+    <div class="mobile-menu-channels">
+      <a href="#" class="btn block">Мои каналы</a>
+    </div>
+  </div><!--.mobile-menu-->
+  <div class="mobile-overlay" onclick=""></div>
 
 </div><!--.inner-->
 </header>

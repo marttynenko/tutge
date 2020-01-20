@@ -1,5 +1,5 @@
 // Colors & BG's ---
-$bgc: #FFF;
+$bgc: #F2F2F2;
 $font: #333;
 $font_2: #181818;
 $font_light: #7e7e7e;
@@ -228,16 +228,19 @@ html {
   font-size: 16px;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
-  height: 100%;
+  // height: 100%;
 }
 body {
-	height: 100%;
+	// height: 100%;
 	color: $font;
 	font-family: $basefont, sans-serif;
 	font-weight: $weight;
 	@include fz($fontsize);
 	line-height: $lh;
 	background: $bgc;
+}
+html, body {
+	min-height: 100%;
 }
 #wrapper {
 	@extend %flex;

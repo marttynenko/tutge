@@ -13,6 +13,66 @@ $.fn.extend({
 });
 
 
+$.fn.removeClassMask = function(mask) {
+  return this.removeClass(function(index, cls) {
+      var re = mask.replace(/\*/g, '\\S+');
+      return (cls.match(new RegExp('\\b' + re + '', 'g')) || []).join(' ');
+  });
+};
+
+
+jQuery.validator.setDefaults({
+  errorClass: 'invalid',
+	successClass: 'valid',
+	focusInvalid: false,
+	errorElement: 'span',
+	errorPlacement: function (error, element) {
+    if ( element.parent().hasClass('jq-checkbox') ||  element.parent().hasClass('jq-radio')) {
+      element.closest('label').after(error);
+      
+    } else if (element.parent().hasClass('jq-selectbox')) {
+      element.closest('.jq-selectbox').after(error);
+    } else {
+      error.insertAfter(element);
+    }
+  },
+  highlight: function(element, errorClass, validClass) {
+    if ( $(element).parent().hasClass('jq-checkbox') ||  $(element).parent().hasClass('jq-radio') || $(element).parent().hasClass('jq-selectbox')) {
+    	$(element).parent().addClass(errorClass).removeClass(validClass);
+    } else {
+    	$(element).addClass(errorClass).removeClass(validClass);
+    }
+  },
+  unhighlight: function(element, errorClass, validClass) {
+  	if ( $(element).parent().hasClass('jq-checkbox') ||  $(element).parent().hasClass('jq-radio') || $(element).parent().hasClass('jq-selectbox')) {
+    	$(element).parent().removeClass(errorClass).addClass(validClass);
+    } else {
+    	$(element).removeClass(errorClass).addClass(validClass);
+    }
+  }
+});
+//дефолтные сообщения, предупреждения
+jQuery.extend(jQuery.validator.messages, {
+  required: "Обязательное поле",
+  email: "Некорректный email адрес",
+  url: "Некорректный URL",
+  number: "Некорректный номер",
+  digits: "Это поле поддерживает только числа",
+  equalTo: "Поля не совпадают",
+  maxlength: jQuery.validator.format('Максимальная длина поля {0} символа(ов)'),
+  minlength: jQuery.validator.format('Минимальная длина поля {0} символа(ов)'),
+  require_from_group: jQuery.validator.format('Отметьте миниммум {0} из этих полей')
+});
+//кастомные методы валидатора
+jQuery.validator.addMethod("lettersonly", function(value, element) {
+  return this.optional(element) || /^[a-zA-ZА-Яа-я\s]+$/i.test(value);
+}, "Только буквы");
+
+jQuery.validator.addMethod("telephone", function(value, element) {
+  return this.optional(element) || /^(\s*)?(\+)?([- _():=+]?\d[- _():=+]?){11,14}(\s*)?$/i.test(value);
+}, "Некорректный формат"); 
+
+
 $.extend(true, $.magnificPopup.defaults, {
   tClose: 'Закрыть (Esc)', // Alt text on close button
   tLoading: 'Загрузка...', // Text that is displayed during loading. Can contain %curr% and %total% keys
@@ -26,11 +86,25 @@ $.extend(true, $.magnificPopup.defaults, {
   },
   ajax: {
     tError: 'Ошибка. <a href="%url%">Содержимое</a> не может быть загружено.' // Error message when ajax request failed
-  }
+	},
+	callbacks: {
+		open: function() {
+			console.log('Popup is opened');
+			$('html').addClass('mfp-is-open')
+		},
+		ajaxContentAdded: function() {
+			console.log('Popup is opened');
+			$('html').addClass('mfp-is-open')
+		},
+		close: function() {
+			console.log('Popup is closed');
+			$('html').removeClass('mfp-is-open')
+		}	
+	}
 });
 
 
-
+var $popupOriginTarget;
 
 jQuery(document).ready(function($){
 
@@ -193,16 +267,17 @@ jQuery(document).ready(function($){
 
 
   if(matchMedia) {
-		var screen992 = window.matchMedia('(max-width:992px)');
-		screen992.addListener(changes2);
-		changes2(screen992);
+		var screen768 = window.matchMedia('(max-width:768px)');
+		screen768.addListener(changes2);
+		changes2(screen768);
 	}
 
 
-	function changes2(screen992) {
-		if(screen992.matches) {
-			// console.log('<992');
+	function changes2(screen768) {
+		if(screen768.matches) {
+			$('.callback-channels').insertAfter($('.slick-channels-wrap'));
 		} else {
+			$('.callback-channels').prependTo($('aside.flx-right-sidebar'));
 		}
 	}
 
@@ -235,10 +310,12 @@ jQuery(document).ready(function($){
 	//инициализация MFP popup для форм
 	$(document).on('click','.ajax-mfp',function(){
 		var a = $(this);
+		$popupOriginTarget = $(this);
+
 		$.magnificPopup.open({
 			items: { src: a.attr('data-href') },
 			type: 'ajax',    
-			overflowY: 'scroll',
+			overflowY: 'hidden',
 			removalDelay: 300,
 			mainClass: 'my-mfp-zoom-in',
 			ajax: {
@@ -315,9 +392,21 @@ jQuery(document).ready(function($){
 
 
 	$(document).on('click','.phone-from-attr',function(e){
-		e.preventDefault();
-		var phone = $(this).attr('data-phone');
-		$(this).text(phone);
+		// e.preventDefault();
+
+		var $this = $(this);
+		var $phone = $this.attr('data-phone');
+		var $phoneClear = $phone.replace(/[^+0-9]/g, '');
+
+		if ($this.hasClass('added')) {return;}
+		
+		if (document.documentElement.clientWidth > 992) {
+			$this.text($phone);
+		} else {
+			$this.html('<a href="tel:'+$phoneClear+'">'+$phone+'</a>');
+		}
+		$this.addClass('added');
+		return false;
 	})
 
 	$(document).on('click','.ui-autocomplete-cancel',function(e){
@@ -349,17 +438,48 @@ jQuery(document).ready(function($){
 	$(document).on('click','.field-price-toggler',function(e){
 		e.preventDefault();
 		$(this).toggleClass('opened');
-		$(this).next().slideToggle(100);
+		$('.field-price-dropdown').slideToggle(100);
 	});
 
-	$("#term-range").ionRangeSlider({
+	var $colorsArr = ['rgba(21, 101, 191, 1)','rgba(0,191,165,1)','rgba(255,202,40,1)','rgba(245,124,0,1)','rgba(233,30,99,1)','rgba(230,33,23,1)'];
+	var $termRange = $("#term-range");
+	$termRange.ionRangeSlider({
 		grid: true,
-		grid_snap: true
+		grid_snap: true,
+		onChange: function(data){
+			var $value = data.from;
+			var $inputDays = $('input#price-days');
+			var $inputSumm = $('input#price-summ');
+			var $perDay = $inputSumm.attr('data-perday') || 0;
+			var $summPerDay = $value * +$perDay;
+
+			$inputDays.val($value);
+			$inputSumm.val($summPerDay+'.00');
+
+			if ($value >= 6) {
+				$('.field-price-drop, .field-price-toggler').removeClassMask('border-color-*');
+				$('.field-price-drop, .field-price-toggler').addClass('border-color-6');
+			} else {
+				$('.field-price-drop, .field-price-toggler').removeClassMask('border-color-*');
+				$('.field-price-drop, .field-price-toggler').addClass('border-color-'+$value);
+			}
+		}
 	});
+	/* $termRange.on('change',function(){
+		var $this = $(this);
+		var from = $this.prop("value");
+	}) */
 
 
 	$('.add-ob-btn').on('click',function(e){
 		e.preventDefault();
+
+		if ($(this).hasClass('opened')) {
+			$('.flx-search').removeClass('invisible');
+		} else {
+			$('.flx-search').addClass('invisible');
+		}
+
 		$(this).toggleClass('opened');
 		$('.add-ob-form').slideToggle(100);
 	});
@@ -407,7 +527,16 @@ jQuery(document).ready(function($){
 	}
 
 	$(document).on('click','.ob-item-to-map',function(e){
+		var $coords = $(this).closest('.ob-item').attr('data-coords') || '';
+
 		$('.screen-map').addClass('opened');
+
+		$('.map-card').removeClass('active');
+		$('.map-card[data-cxy="'+$coords+'"]').addClass('active');
+		if (document.querySelector('.map-card.active')) {
+			document.querySelector('.map-card.active').scrollIntoView();
+		}
+
 		window.scrollTo(0,0);
 		$('html').addClass('screen-map-open');
 	});
@@ -418,8 +547,123 @@ jQuery(document).ready(function($){
 	});
 
 
+	$(document).on('click','.search-form-location-toggler',function(e){
+		e.preventDefault();
+		$(this).toggleClass('opened');
+		$('.search-form').toggleClass('location-drop-opened');
+		$('.search-form-location-drop').toggleClass('opened');
+	});
+
+	$(document).on('mouseup',function(e){
+		if ($('.search-form-location').has(e.target).length === 0){
+    	$('.search-form-location-drop').removeClass('opened');
+			$('.search-form-location-toggler').removeClass('opened');
+			$('.search-form').removeClass('location-drop-opened');
+		}
+		/* if ($('.mobile-menu').has(e.target).length === 0 && !e.target.classList.contains('mobile-menu')){
+    	$('.mobile-menu').removeClass('opened');
+      // $('.search-form-location-toggler').removeClass('opened');
+		} */
+	});
+
+
+	$(document).on('click','.mobile-menu-toggler',function(e){
+		e.preventDefault();
+		// $(this).addClass('opened');
+		$('html').addClass('mobile-menu-is-open');
+		$('.mobile-menu').addClass('opened');
+		$('.mobile-overlay').addClass('opened');
+	});
+	$(document).on('click','.mobile-overlay',function(e){
+		e.preventDefault();
+		$('html').removeClass('mobile-menu-is-open');
+		$('.mobile-menu').removeClass('opened');
+		$(this).removeClass('opened');
+	})
+
+	$('.ob-item-img').each(function(key,item){
+		if ($(item).hasAttr('data-images')) {
+			var $imgs = $(item).attr('data-images').split(',');
+			$(item).append('<div class="hover-previews"></div>');
+
+			$imgs.forEach(function(el,index){
+				if (index == 0) {
+					$(item).find('.hover-previews').append('<div class="hover-previews-dot active" data-img="'+el+'"></div>');
+				} else {
+					$(item).find('.hover-previews').append('<div class="hover-previews-dot" data-img="'+el+'"></div>');
+				}
+			});
+		}
+	});
+
+
+	$(document).on('mouseenter','.hover-previews-dot',function(){
+		var $this = $(this);
+		var $src = $this.attr('data-img');
+		var $target = $this.closest('.ob-item-img').find('a');
+		// var $height = $target.innerHeight();
+
+		// $target.css('maxHeight',$height);
+
+		let $image = document.createElement('img');
+		$image.src = $src;
+		$image.onload = function(){
+			// $target.html($image);
+			$target.css('backgroundImage','url('+$src+')');
+			$target.addClass('hover-bg');
+			$('.hover-previews-dot').removeClass('active');
+			$this.addClass('active');
+		}
+	});
+
+	$('.mask-phone').mask("+7 (999)-999-99-99");
+
+	$("#callback_form").validate({
+    rules: {
+      callback_phone: {
+				required: true,
+				telephone: true
+      }
+    }/*,
+    submitHandler: function(){
+      //сабмит формы
+    }*/
+	});
+	
+	$(document).on('click','.callback-input-clear',function(e){
+		e.preventDefault();
+		$('input#callback_phone').val('');
+	})
+
+	$(document).on('click','.callback-toggler',function(e){
+		e.preventDefault();
+
+		if ($(this).hasClass('opened')) {
+			$('.flx-search').removeClass('invisible');
+		} else {
+			$('.flx-search').addClass('invisible');
+		}
+
+		$(this).toggleClass('opened');
+		$(this).next().slideToggle(100);
+	});
+
+
+	$(document).on('click','.popup-photo-adrs',function(e){
+		e.preventDefault();
+		var $targetAd = $popupOriginTarget.closest('.ob-item');
+		var $targetBtn = $targetAd.find('.ob-item-to-map');
+
+		$.magnificPopup.close();
+		$targetBtn.click();
+	});
+
 });//ready close
 
+
+$.fn.hasAttr = function(name) {  
+	return this.attr(name) !== undefined;
+};
 
 //получаем центр карты
 function getMathMapCenter(selector) {

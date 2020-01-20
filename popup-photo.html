@@ -1,0 +1,88 @@
+<div id="popup-photo" class="white-popup popup-photo zoom-anim-dialog">
+  <div class="popup-photo-row flex">
+    <div class="popup-photo-imgs">
+      <div class="slick-popup">
+        <div class="slick-popup-slide">
+          <div class="slick-popup-flex">
+          <img src="images/examples/popup-image-1.jpg" alt="alt">
+          </div>
+        </div>
+        <div class="slick-popup-slide">
+          <div class="slick-popup-flex">
+            <img src="https://via.placeholder.com/450x450" alt="alt">
+          </div>
+        </div>
+        <div class="slick-popup-slide">
+          <div class="slick-popup-flex">
+            <img src="https://via.placeholder.com/450x450/FF00FF/FFF" alt="alt">
+          </div>
+        </div>
+      </div>
+    </div><!--.imgs-->
+
+    <div class="popup-photo-content">
+      <div class="popup-photo-head flex valign-center">
+        <div class="popup-photo-head-img">
+          <a href="#"><img src="images/user.jpg" alt="alt"></a>
+        </div>
+        <div class="popup-photo-head-body">
+          <div class="popup-photo-head-date">16:00 12 июня</div>
+          <a href="#" class="popup-photo-head-author">Олег Олегович</a>
+        </div>
+      </div><!--.head-->
+
+      <div class="popup-photo-desc">
+        <div class="popup-photo-title"><a href="#">Набор инструментов для автомобиля в пластиковом кейсе (94 предмета)</a></div>
+        <div class="popup-photo-params">
+          Упаковка 3<br>  
+          Минимальная отгрузка 1<br>  
+          Штрихкод 4660003919844<br>  
+          Бренд СЕРВИС КЛЮЧ<br>  
+          Вес 5.83 кг<br>  
+          Сертификат сертификат<br>  
+          Страна происхождения Китай
+        </div>
+      </div>
+      <div class="popup-photo-bottom">
+        <div class="popup-photo-price">5 000 ₽</div>
+        <div class="popup-photo-adrs">
+          <svg class="sprite svg-pin-adr">
+            <use xlink:href="svg/svg/symbols.svg#i-pin">
+          </svg>
+          г.Москва, ул. Пупкина 28
+        </div>
+      </div>
+      <div class="popup-photo-phone phone-from-attr" data-phone="+7 800-82-92-11">+7 800 - <span class="dots">показать</span></div>
+    </div><!--.content-->
+  </div><!--.row-->
+
+  <div class="popup-photo-nav">
+    <a href="javascript:void(0)" class="popup-photo-prev popup-photo-nav-link">
+      <svg class="sprite svg-popup-nav">
+        <use xlink:href="svg/svg/symbols.svg#popup-prev">
+      </svg>
+    </a>
+    <a href="javascript:void(0)" class="popup-photo-next popup-photo-nav-link">
+      <svg class="sprite svg-popup-nav">
+        <use xlink:href="svg/svg/symbols.svg#popup-next">
+      </svg>
+    </a>
+  </div><!--.nav-->
+<script type="text/javascript">
+  jQuery(document).ready(function($){
+
+    $('.slick-popup').slick({
+      infinite: false,
+      dots: true
+    });
+
+
+    //стилизация элементов форм
+    $('.white-popup input[type="checkbox"], .white-popup  input[type="radio"], .white-popup input[type="file"], .white-popup select').styler({
+      singleSelectzIndex: '1',
+    });
+
+    
+  });
+</script>
+</div>
